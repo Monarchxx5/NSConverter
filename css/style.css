@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: black;
+    cursor: url(''), auto;
+  }
+.preloader {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(52, 152, 219, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 2s ease-out;
+}
+
+.discoball {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid white;
+    width: 40px;
+    height: 40px;
+    animation: spin 0.4s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+section 
+{
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 2px;
+	flex-wrap: wrap;
+	overflow: hidden;
+}
+section::before 
+{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	animation: bganimate 10s infinite;
+}
+@keyframes  bganimate{
+  0% {
+    background: red;
+   
+  }
+  20%{
+    background: orange;
+
+  }
+  40%{
+    background: yellow;
+
+  }
+  60%{
+    background: green;
+
+  }
+  80%{
+    background: blue;
+
+  }
+  90%{
+    background: purple;
+  }
+  100%{
+    background:red;
+  }
+}
+section span 
+{
+	position: relative;
+	display: block;
+	width: calc(6.25vw - 2px);
+	height: calc(6.25vw - 2px);
+  background-color: black;
+  opacity: 0.5;
+  border-radius: 0%;
+	z-index: 1;
+	transition: 2s;
+} 
+section span:hover 
+{ 
+  background-color: white;
+  opacity: 0;
+	transition: 0s;
+}
+
+  form {
+    text-align: center;
+    max-width: 300px;
+    margin: auto;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border: rgba(0, 0, 0, 0.514) 2px solid;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.521) 10px 10px;
+    backdrop-filter: blur(5px);
+    color: white;
+    text-shadow: rgba(0, 0, 0, 0.5) 1px 3px;
+    position: absolute;
+  }
+  .user{
+    border-radius: 20px;
+    border: 0;
+  }
+  .pass{
+    border-radius: 20px;
+    border: 0;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+    border-radius: 30px;
+    border: 0px;
+  }
+  button:hover{
+    background-color: green;
+    transform: scale(1.1);
+    transition: 0.75s;
+    border: green 2px solid;
+  }
+  button ::before{
+    background-color: red;
+  }
+  .error {
+    color: red;
+    text-shadow: rgba(0, 0, 0, 0.295) 1px 3px;
+  }

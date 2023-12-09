@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url(../images/bggif.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 20px;
+    padding: 0;
+    background-color: blue;
+    height: 100%;
+    width: 100%;
+    color: white;
+    text-shadow: rgba(0, 0, 0, 0.295) 2px 4px;
+}
+.preloader {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(52, 152, 219, 0.3);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 2s ease-out;
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid white;
+    width: 40px;
+    height: 40px;
+    animation: spin 0.4s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.header{
+    color: red;
+    animation: bganimate 10s linear infinite, jump 1.5s infinite ease-in-out;
+}
+@keyframes jump {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(-10px);
+    }
+    50% {
+      transform: translateY(0);
+    }
+    75% {
+      transform: translateY(10px);
+    }
+  }
+  @keyframes  bganimate{
+    0% {
+      color: red;
+      transform: scale();
+     
+    }
+    20%{
+      color: orange;
+  
+    }
+    40%{
+      color: yellow;
+  
+    }
+    60%{
+      color: green;
+  
+    }
+    80%{
+      color: blue;
+  
+    }
+    90%{
+      color: purple;
+    }
+    100%{
+      color:red;
+    }
+  }
+.main{  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    padding: 20px;
+    margin: 10px;
+    background-color: rgb(rgba(255, 255, 255, 0.555), 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: rgba(0, 0, 0, 0.39) 1px solid;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.308)   20px 20px 10px;
+}
+.inputbox{
+    transform: scale(1.5);
+    border: black solid 1px;
+    border-radius: 5px;
+}
+button {
+    background-color: rgb(51, 69, 233);
+    border: 2px white;
+    border-radius: 20px;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    margin-left: 60px;
+    transform: scale(1.2);
+}
+
+button:hover {
+    background-color: rgb(19, 3, 109);
+    transform: scale(1.5);
+    transition: 0.75s;
+}
+.clearbutton{
+    background: red;
+}
+.result {
+    width: calc(100% - 20px);
+}
+
