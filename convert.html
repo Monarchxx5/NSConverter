@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Converter</title>
+    <link rel="stylesheet" href="css/convert.css">
+</head>
+<body>
+    
+    <div class="header">
+       <h1> NUMBER SYSTEM CONVERTER</h1>
+    </div>
+    <div class="main">
+        <div class="binary">
+            <h1>Binary</h1>
+            <input type="text" placeholder="Input (0-1)" id="binaryInput" oninput="validateBinaryInput()" class="inputbox"><button onclick="convert('binary')">Convert</button>
+        </div>
+        <div class="decimal">
+            <h1>Decimal</h1>
+            <input type="text" placeholder="Input (0-9)" id="decimalInput" oninput="validateDecimalInput()" class="inputbox"><button onclick="convert('decimal')">Convert</button>
+        </div>
+        <div class="octal">
+            <h1>Octal</h1>
+            <input type="text" placeholder="Input (0-7)" id="octalInput" oninput="validateOctalInput()" class="inputbox"><button onclick="convert('octal')">Convert</button>
+        </div>
+        <div class="hexadecimal">
+            <h1>Hexadecimal</h1>
+            <input type="text" placeholder="Input (0-9 & a-f)" id="hexInput" oninput="validateHexadecimalInput()" class="inputbox"><button onclick="convert('hexadecimal')">Convert</button>
+        </div>
+        <br>
+        <br>
+        <button onclick="clearInputs()" class="clearbutton">Clear</button>
+    </div>
+    <script>
+        function validateBinaryInput() {
+            var input = document.getElementById('binaryInput');
+            input.value = input.value.replace(/[^01]/g, '');
+        }
+
+        function validateDecimalInput() {
+            var input = document.getElementById('decimalInput');
+            input.value = input.value.replace(/[^0-9]/g, '');
+        }
+
+        function validateOctalInput() {
+            var input = document.getElementById('octalInput');
+            input.value = input.value.replace(/[^0-7]/g, '');
+        }
+
+        function validateHexadecimalInput() {
+            var input = document.getElementById('hexInput');
+            input.value = input.value.replace(/[^0-9A-Fa-f]/g, '');
+        }
+
+        function convert(type) {
+            var binaryInput = document.getElementById('binaryInput');
+            var decimalInput = document.getElementById('decimalInput');
+            var octalInput = document.getElementById('octalInput');
+            var hexInput = document.getElementById('hexInput');
+
+            switch (type) {
+                case 'binary':
+                    var binaryValue = binaryInput.value;
+                    decimalInput.value = parseInt(binaryValue, 2);
+                    octalInput.value = parseInt(binaryValue, 2).toString(8);
+                    hexInput.value = parseInt(binaryValue, 2).toString(16).toUpperCase();
+                    break;
+                case 'decimal':
+                    var decimalValue = decimalInput.value;
+                    binaryInput.value = (decimalValue >>> 0).toString(2);
+                    octalInput.value = parseInt(decimalValue, 10).toString(8);
+                    hexInput.value = parseInt(decimalValue, 10).toString(16).toUpperCase();
+                    break;
+                case 'octal':
+                    var octalValue = octalInput.value;
+                    binaryInput.value = parseInt(octalValue, 8).toString(2);
+                    decimalInput.value = parseInt(octalValue, 8).toString(10);
+                    hexInput.value = parseInt(octalValue, 8).toString(16).toUpperCase();
+                    break;
+                case 'hexadecimal':
+                    var hexValue = hexInput.value;
+                    binaryInput.value = parseInt(hexValue, 16).toString(2);
+                    decimalInput.value = parseInt(hexValue, 16).toString(10);
+                    octalInput.value = parseInt(hexValue, 16).toString(8);
+                    break;
+            }
+        }
+
+        function clearInputs() {
+            document.getElementById('binaryInput').value = '';
+            document.getElementById('decimalInput').value = '';
+            document.getElementById('octalInput').value = '';
+            document.getElementById('hexInput').value = '';
+        }
+    </script>
+    
+</body>
+</html>
